@@ -1,19 +1,24 @@
 # aws-cli
 
-aws-cli dockerized
+aws-cli dockerized (now with `aws ssm` support!)
 
 # Usage
 
 Please, put the `bin/aws` file int your `${HOME}/bin` or anywhere within your `${PATH}` and do `chmod +x` on that file.
 
-# Env vars
+My `~/bin/aws` file looks like this
 
-This container supports few env vars
+```bash
+#!/bin/bash
 
+docker run --rm -i \
+-e AWS_PROFILE \
+-e AWS_DEFAULT_REGION \
+-e AWS_ACCESS_KEY_ID \
+-e AWS_SECRET_ACCESS_KEY \
+-e AWS_SESSION_TOKEN \
+-v ${HOME}/.aws:/root/.aws \
+-v $(pwd):/data \
+-w /data \
+s4ros/aws-cli "$@"
 ```
-AWS_PROFILE
-AWS_DEFAULT_REGION
-AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY
-```
-To use any of those, please just for example run `export AWS_PROFILE=your_aws_profile` in your shell before using the container.
