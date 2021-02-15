@@ -1,9 +1,15 @@
 #!/bin/bash
 
-docker run --rm -it \
--e AWS_PROFILE \
--e AWS_DEFAULT_REGION \
+docker run --rm -i \
 -e AWS_ACCESS_KEY_ID \
+-e AWS_DEFAULT_REGION \
+-e AWS_PROFILE \
 -e AWS_SECRET_ACCESS_KEY \
--v ${HOME}/.aws:/root/.aws:ro \
-s4ros/aws-cli /usr/local/bin/aws $@
+-e AWS_SECURITY_TOKEN \
+-e AWS_SESSION_EXPIRATION \
+-e AWS_SESSION_TOKEN \
+-e AWS_VAULT \
+-v ${HOME}/.aws:/root/.aws \
+-v $(pwd):/data \
+-w /data \
+s4ros/aws-cli "$@"
