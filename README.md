@@ -4,7 +4,7 @@ aws-cli dockerized (now with `aws ssm` support!)
 
 # Usage
 
-Please, put the `bin/aws` file int your `${HOME}/bin` or anywhere within your `${PATH}` and do `chmod +x` on that file.
+Please, put the `bin/aws` file into your `${HOME}/bin` or anywhere within your `${PATH}` and do `chmod +x` on that file.
 
 My `~/bin/aws` file looks like this
 
